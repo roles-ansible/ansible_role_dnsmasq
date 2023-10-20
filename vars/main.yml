@@ -5,5 +5,5 @@ dnsmasq_package_names:
   - dnsmasq-utils
 
 # versionscheck
-playbook_version_number: 03
+playbook_version_number: 5
 playbook_version_path: 'l3d.role.dnsmasq.version'

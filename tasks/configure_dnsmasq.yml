@@ -1,0 +1,26 @@
+---
+- name: Create dnsmasq Group
+  become: true
+  ansible.builtin.group:
+    name: "{{ dnsmasq__group }}"
+    state: present
+
+- name: Create dnsmasq user
+  become: true
+  ansible.builtin.user:
+    name: "{{ dnsmasq__user }}"
+    home: "/var/lib/misc"
+    shell: '/usr/sbin/nologin'
+    groups: "{{ dnsmasq__group }}"
+    comment: "Managed by Ansible"
+    append: true
+
+- name: Configure dnsmasq
+  become: true
+  ansible.builtin.template:
+    src: 'templates/dnsmasq.conf.j2'
+    dest: '/etc/dnsmasq.conf'
+    mode: '0644'
+    owner: 'root'
+    group: 'root'
+  notify: "Run systemctl restart dnsmasq.service"
