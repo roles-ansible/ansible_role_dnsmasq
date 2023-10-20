@@ -1,0 +1,14 @@
+---
+- name: Update apt cache
+  become: true
+  ansible.builtin.apt:
+    cache_valid_time: 3600
+    update_cache: true
+
+- name: Install dnsmasq
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: "{{ dnsmasq__state }}"
+  with_items: "{{ dnsmasq_package_names }}"
+  notify: "Run systemctl restart dnsmasq.service"

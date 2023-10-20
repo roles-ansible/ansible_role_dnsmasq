@@ -1,4 +1,7 @@
 ---
-- name: run optional versionscheck
+- name: Run optional versionscheck
   ansible.builtin.include_tasks: versioncheck.yml
-  when: submodules_versioncheck|bool
+  when: submodules_versioncheck | bool
+
+- name: Install dnsmasq
+  ansible.builtin.include_tasks: install_dnsmasq.yml

@@ -10,7 +10,7 @@
     mode: 0755
   when: submodules_versioncheck|bool
 
-- name: check playbook version
+- name: Check playbook version
   become: true
   ansible.builtin.slurp:
     src: "/etc/.ansible-version/{{ playbook_version_path }}"
@@ -26,7 +26,7 @@
 
 - name: Print locale role version
   ansible.builtin.debug:
-    msg: "Local role version: '{{ playbook_version_number|string }}'."
+    msg: "Local role version: '{{ playbook_version_number | string }}'."
   when: submodules_versioncheck|bool
 
 - name: Check if your version is outdated
@@ -35,7 +35,7 @@
   when:
     - playbook_version.content|default("Mgo=")|b64decode|int - 1 >= playbook_version_number|int and submodules_versioncheck|bool
 
-- name: write new version to remote disk
+- name: Write new version to remote disk
   become: true
   ansible.builtin.copy:
     content: "{{ playbook_version_number }}"
