@@ -5,3 +5,6 @@
 
 - name: Install dnsmasq
   ansible.builtin.include_tasks: install_dnsmasq.yml
+
+- name: Configure dnsmasq
+  ansible.builtin.include_tasks: configure_dnsmasq.yml

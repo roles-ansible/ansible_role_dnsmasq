@@ -1,5 +1,41 @@
 ---
 dnsmasq__state: present
 
+# dnsmasq settings
+dnsmasq__port: '53'
+dnsmasq__domain_needed: false
+dnsmasq__bogus_priv: false
+dnsmasq__dnssec: false
+dnsmasq__dnssec_check_unsigned: false
+dnsmasq__filterwin2k: false
+dnsmasq__resolv_file: '/etc/resolv.conf'
+dnsmasq__strict_order: false
+dnsmasq__no_resolv: false
+dnsmasq__no_poll: false
+dnsmasq__set_server: false
+dnsmasq__server_value: '127.0.0.1#153'
+dnsmasq__user: 'dnsmasq'
+dnsmasq__group: 'dnsmasq'
+dnsmasq__configure_interface: false
+dnsmasq__set_interface: 'undefined'
+dnsmasq__except_interface: 'undefined'
+dnsmasq__listen_addres: 'undefined'
+dnsmasq__bind_interfaces: false
+dnsmasq__expand_hosts: true
+dnsmasq__set_domains: false
+dnsmasq__domain_values: []
+dnsmasq__set_dhcp_ranges: false
+dnsmasq__dhcp_range_values: []
+dnsmasq__enable_ra: false
+dnsmasq__dhcp_hosts: []
+dnsmasq__set_dhcp_options: false
+dnsmasq__dhcp_options: []
+dnsmasq__dhcp_authoritative: false
+dnsmasq__dhcp_rapid_commit: false
+dnsmasq__set_cache_size: false
+dnsmasq__cache_size_value: '150'
+dnsmasq__set_local_ttl: false
+dnsmasq__local_ttl_value: 300
+
 # should we do a version check? (recomended)
 submodules_versioncheck: false
